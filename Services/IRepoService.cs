@@ -1,18 +1,21 @@
-﻿// using kolos2.Entities.Models;
-// using System.Collections.Generic;
-// using System.Linq;
-// using System.Threading.Tasks;
+﻿using kolos2.Entities.Models;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-// namespace kolos2.Services
-// {
-//     public interface IRepoService
-//     {
-//         IQueryable<Zamowienie> GetAllOrders();
-//         IQueryable<Zamowienie> GetAllOrdersByClientName(string clientName);
-//         Task SaveChangesAsync();
-//         IQueryable<Pracownik> GetEmployeeById(int id);
-//         IQueryable<Klient> GetClientById(int id);
-//         IQueryable<WyrobCukierniczy> GetConfectioneryById(int id);
-//         Task CreateAsync<T>(T entity) where T : class;
-//     }
-// }
+namespace kolos2.Services
+{
+    public interface IRepoService
+    {
+        Task<Musican> GetMusicanById(int id);
+        Task<List<Track>> GetMusicanTracks(int id);
+
+        Task<List<Track>> GetMusicanTracksWhereAlbumDoesntExist(int id);
+
+        bool DeleteMusican(int id);
+
+        bool DeleteTrack(int id);
+
+        bool DeleteMusicanTrack(int id1, int id2);
+    }
+}

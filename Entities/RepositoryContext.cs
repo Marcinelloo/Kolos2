@@ -61,8 +61,8 @@ namespace kolos2.Entities
                 e.HasKey(e => new { e.IdMusican, e.IdTrack });
 
 
-                e.HasOne(e => e.Track).WithMany(e => e.MusicanTrack).HasForeignKey(e => e.IdTrack).OnDelete(DeleteBehavior.ClientSetNull);
-                e.HasOne(e => e.Musican).WithMany(e => e.MusicanTrack).HasForeignKey(e => e.IdMusican).OnDelete(DeleteBehavior.ClientSetNull);
+                e.HasOne(e => e.Track).WithMany(e => e.MusicanTrack).HasForeignKey(e => e.IdTrack);
+                e.HasOne(e => e.Musican).WithMany(e => e.MusicanTrack).HasForeignKey(e => e.IdMusican);
 
                 e.HasData(
                     new MusicanTrack
@@ -84,7 +84,7 @@ namespace kolos2.Entities
                 e.Property(e => e.Duration).IsRequired();
                 e.Property(e => e.IdMusicAlbum);
 
-                e.HasOne(e => e.Album).WithMany(e => e.Track).HasForeignKey(e => e.IdMusicAlbum).OnDelete(DeleteBehavior.ClientSetNull);
+                e.HasOne(e => e.Album).WithMany(e => e.Track).HasForeignKey(e => e.IdMusicAlbum);
 
                 e.HasData(
                     new Track
@@ -106,7 +106,7 @@ namespace kolos2.Entities
                 e.Property(e => e.AlbumName).HasMaxLength(30).IsRequired();
                 e.Property(e => e.PublishDate).IsRequired();
 
-                e.HasOne(e => e.MusicLabel).WithMany(e => e.Album).HasForeignKey(e => e.IdMusicLabel).OnDelete(DeleteBehavior.ClientCascade);
+                e.HasOne(e => e.MusicLabel).WithMany(e => e.Album).HasForeignKey(e => e.IdMusicLabel);
 
                 e.HasData(
                     new Album
