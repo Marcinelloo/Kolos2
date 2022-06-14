@@ -74,10 +74,6 @@ namespace kolos2.Controllers
                         // _service.DeleteMusicanTrack(track.IdTrack);
                     }
 
-
-
-
-
                     scope.Complete();
 
                 }
